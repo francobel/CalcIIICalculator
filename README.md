@@ -1,6 +1,6 @@
 # Vector Calculus Calculator
 
-This is a desktop application that is aimed to help anyone that's currently enrolled in a Calculus 3 course and would like to have an all in one tool handy. This project has 3 main sections.
+This is a desktop application that is aimed to help anyone that's currently enrolled in a Calculus 3 course and would like to have an all in one tool handy. This project has 3 main sections:
 
 	Vector Algebra
 	Differential Operators
@@ -18,7 +18,7 @@ The vector algebra section is compromised of 5 tools:
 These tools will generally have 1 or 2 empty fields for you fill in with vectors.
 The input should be in **ORDER SET NOTATION**:
 
-	ex: (1,2,3) , (0,3,5)
+	ex: (1,2,3)
 
 At this point in time the tools only work with integers. Float interaction will come in the future. 
 
