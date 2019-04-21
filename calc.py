@@ -265,7 +265,7 @@ class Derivatives:
 #
 ##############################
 # I know my button naming
-# convention isn't proper butto
+# convention isn't proper but
 # it's like this at the moment
 # for the sake of convenience
 ###############################
