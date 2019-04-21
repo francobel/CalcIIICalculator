@@ -1,5 +1,9 @@
 # Vector Calculus Calculator
 
+To run the application
+
+	$ python calc.py
+
 This is a desktop application that is aimed to help anyone that's currently enrolled in a Calculus 3 course and would like to have an all in one tool handy. This project has 3 main sections:
 
 	Vector Algebra
@@ -37,7 +41,7 @@ For all of the differential operator tools you will get an empty field in which 
 	  asterisk '**'.
 
 	What you would normally write in your math class as: 2X^2+3Y+3
-        	                         Should be input as: 2*x**+3*y+3
+        	                         Should be input as: 2*x**2+3*y+3
 
 **Gradient:**
 
