@@ -19,8 +19,8 @@ The vector algebra section is compromised of 5 tools:
 	4. Dot Product
 	5. Cross Product
 
-These tools will generally have 1 or 2 empty fields for you fill in with vectors.
-The input should be in **ORDER SET NOTATION**:
+These tools will generally have 1 or 2 empty fields for you fill in with vectors or in one case a scalar multiple.
+The input should be in **ORDER SET NOTATION** if you're inputting a vector:
 
 	ex: (1,2,3)
 
