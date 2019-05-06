@@ -1,14 +1,14 @@
 #   Programmer: Eduardo Belman
 #      Project: Vector Calculus Calculator
-# Time Elapsed: 18 Hours
-#  Days Worked: 3 
+# Time Elapsed: 20 Hours
+#  Days Worked: 3
 
 import tkinter as tk
 from sympy import diff
 
 calc = tk.Tk()
 calc.title('Multivariable Calculus Calculator')
-calc.geometry("300x400")
+calc.geometry("300x425")
 calc.resizable(0, 0)
 
 ##############################
@@ -32,6 +32,7 @@ def clear_screen():#Clears every menu button
     vec2_entry.delete(first=0, last=30)
     calc_button.place_forget()
     sign_label.place_forget()
+    instruc_message.place_forget()
 
     answer_lab.config(text="")
 
@@ -87,30 +88,46 @@ class VectorAlgebra:
         vec2_entry.place(relx=.5, rely=.45, anchor="c")
         calc_button.place(relx=.5, rely=.6, anchor="c")
         button0.place(relx=.5, rely=.7, anchor="c")
+        instruc_message.place(relx=.5, rely=.9, anchor="c")
 
-        sign_label.config(text="+")
-        button0.config(command=VectorAlgebra.va_return)
-        calc_button.config(command=VectorAlgebra.calculate)
+        sign_label.config(text = "+")
+        instruc_message.config(text = "Instructions: Input the vectors you want to add in the text "
+                                      "fields and press calculate. For input format and more details "
+                                      "review the Read Me file.")
+        button0.config(command = VectorAlgebra.va_return)
+        calc_button.config(command = VectorAlgebra.calculate)
         VectorAlgebra.operation = 0
 
     def sub_display():
         VectorAlgebra.add_display()
         sign_label.config(text="-")
+        instruc_message.config(text = "Instructions: Input the vectors you want to subtract in the text "
+                                      "fields and press calculate. For input format and more details "
+                                      "review the Read Me file.")
         VectorAlgebra.operation = 1
 
     def scalar_display():
         VectorAlgebra.add_display()
         sign_label.config(text="*")
+        instruc_message.config(text = "Instructions: Input the scalar multiple in the top text box, "
+                                      "the vector in the second and press calculate. For input format "
+                                      "and more details review the Read Me file.")
         VectorAlgebra.operation = 2
 
     def dot_display():
         VectorAlgebra.add_display()
         sign_label.config(text="•")
+        instruc_message.config(text = "Instructions: Input the vectors you want to calculate the dot "
+                                      "product for and press calculate. For input format and more details "
+                                      "review the Read Me file.")
         VectorAlgebra.operation = 3
 
     def cross_display():
         VectorAlgebra.add_display()
         sign_label.config(text="x")
+        instruc_message.config(text = "Instructions: Input the vectors you want to calculate the cross "
+                                      "product for and press calculate. For input format and more details "
+                                      "review the Read Me file.")
         VectorAlgebra.operation = 4
 
     def calculate():
@@ -170,22 +187,33 @@ class DifferentialOperators:
         vec1_entry.place(relx=.5, rely=.3, anchor="c")
         calc_button.place(relx=.5, rely=.45, anchor="c")
         button0.place(relx=.5, rely=.55, anchor="c")
+        instruc_message.place(relx=.5, rely=.9, anchor="c")
 
         button0.config(command=DifferentialOperators.do_return)
         calc_button.config(command=DifferentialOperators.calculate)
+        instruc_message.config(text = "Instructions: Input the function you want to calculate "
+                                      "the gradient for. For input format and more details "
+                                      "review the Read Me file.")
         DifferentialOperators.operation = 0
 
     def divergence_display():
         DifferentialOperators.gradient_display()
+        instruc_message.config(text = "Instructions: Input the vector field you want to calculate "
+                                      "the divergence for. For input format and more details "
+                                      "review the Read Me file.")
         DifferentialOperators.operation = 1
 
     def curl_display():
         DifferentialOperators.gradient_display()
+        instruc_message.config(text = "Instructions: Input the vector field you want to calculate "
+                                      "the curl for. For input format and more details "
+                                      "review the Read Me file.")
         DifferentialOperators.operation = 2
 
     def calculate():
         vec_list = []
         answer = "("
+
         if DifferentialOperators.operation == 0:
             function = vec1_entry.get()
             i = str(diff(function, 'x'))
@@ -212,8 +240,8 @@ class DifferentialOperators:
 
             answer = "( " + i + " )i + ( " + j + " )j + ( " + k + " )k"
 
-        answer = answer.replace("**",'^').replace("*","")
-        answer_lab.config(text=answer)
+            answer = answer.replace("**",'^').replace("*","")
+            answer_lab.config(text=answer)
 
 class Derivatives:
 
@@ -228,9 +256,12 @@ class Derivatives:
         vec1_entry.place(relx=.5, rely=.3, anchor="c")
         calc_button.place(relx=.5, rely=.45, anchor="c")
         button0.place(relx=.5, rely=.55, anchor="c")
+        instruc_message.place(relx=.5, rely=.9, anchor="c")
 
         button0.config(command=Derivatives.der_return)
         calc_button.config(command=Derivatives.calculate)
+        instruc_message.config(text = "Instructions: Input the function you want to derive. "
+                                      "For input format and more details review the Read Me file.")
         Derivatives.operation = 0
 
     def partial_display():
@@ -243,6 +274,10 @@ class Derivatives:
 
         button0.config(command=Derivatives.der_return)
         calc_button.config(command=Derivatives.calculate)
+        instruc_message.config(text = "Instructions: Input the function you want to derive in the "
+                                      "top and the variable you want to derive with respect to in "
+                                      "the bottom field. For input format and more read "
+                                      "the Read Me file.")
         Derivatives.operation = 1
 
     def calculate():
@@ -265,7 +300,7 @@ class Derivatives:
 #
 ##############################
 # I know my button naming
-# convention isn't proper but
+# convention isn't proper
 # it's like this at the moment
 # for the sake of convenience
 ###############################
@@ -297,11 +332,15 @@ button11 = tk.Button(calc, text='Curl', width=20, command=DifferentialOperators.
 button12 = tk.Button(calc, text='Derivative', width=20, command=Derivatives.deriv_display)
 button13 = tk.Button(calc, text='Partial Derivative', width=20, command=Derivatives.partial_display)
 
-#Vector Addition Widgets
+#Entry Widgets
 vec1_entry = tk.Entry(calc, width = 22, bg = "white", fg = "black", justify = "center")
 vec2_entry = tk.Entry(calc, width = 22, bg = "white", fg = "black", justify = "center")
-sign_label = tk.Label(calc, bg = "white", width = "2",  fg = "black", text = "", font=("Times New Roman", 14, 'bold'))
+sign_label = tk.Label(calc, width = "2",bg = "gray", fg = "black", text = "", font=("Times New Roman", 14, 'bold'))
 calc_button = tk.Button(calc, text='Calculate', width=20, command=VectorAlgebra.calculate)
+
+
+#Instruction Label
+instruc_message = tk.Message(calc, width = "300", bg = "gray", fg = "black", font=('Arial', 11, 'bold'))
 
 if __name__ == "__main__":
     main()
