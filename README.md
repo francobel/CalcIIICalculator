@@ -1,5 +1,7 @@
 # Vector Calculus Calculator
 
+Video Explanation: https://www.youtube.com/watch?v=MmwRf9yD7q0
+
 To run the application
 
 	$ python calc.py
